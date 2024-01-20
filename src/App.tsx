@@ -16,6 +16,14 @@ function App() {
     setResult(result.slice(0, result.length - 1));
   };
 
+  const calculate = () => {
+    try {
+      setResult(eval(result).toString());
+    } catch (error) {
+      console.log("SyntaxError");
+    }
+  };
+
   return (
     <div className="container">
       <form action="">
@@ -78,7 +86,7 @@ function App() {
         <button name="." onClick={handleClick}>
           .
         </button>
-        <button name="=" className="span-two" onClick={handleClick}>
+        <button name="=" className="span-two" onClick={calculate}>
           =
         </button>
       </div>
